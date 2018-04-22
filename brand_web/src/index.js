@@ -19,6 +19,9 @@ const Root = () => {
 
             <Switch>
                 <Route path="/brandengine/home" component={Home} />
+                <Route path="/brandengine/brands/home" component={BrandHome} />
+                <Route path="/brandengine/about-us" component={AboutHome} />
+                <Route path="/brandengine/contact" component={ContactHome} />
             </Switch>
 
         </BrowserRouter>
