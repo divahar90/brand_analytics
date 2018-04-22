@@ -11,6 +11,9 @@ import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import './styles/index.css';
 import Home from './components/common/Home';
+import AboutHome from './components/about_us/AboutHome';
+import BrandHome from './components/brands/BrandHome';
+import ContactHome from './components/contact/ContactHome';
 
 const Root = () => {
     return (
