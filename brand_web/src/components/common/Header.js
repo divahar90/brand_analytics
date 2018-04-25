@@ -9,7 +9,7 @@ class Header extends Component {
         }
 
         const txtStyle = {
-            "padding-left" : "220px"
+            "padding-left" : "400px"
         }
 
         const imgStyle = {

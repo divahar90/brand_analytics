@@ -5,10 +5,14 @@ class Sidebar extends Component {
         return (
             <div>
                 <div class="sidenav">
-                    <a href="/brandengine/home">Home</a>
-                    <a href="/brandengine/brands/home">Brands</a>
-                    <a href="/brandengine/about-us">About us</a>
-                    <a href="/brandengine/contact">Contact</a>
+                    <img src={require("../../images/avatar.png")} className="avatar"/>
+                    <a className={"pulltop"}>Welcome Diva</a>
+                    <a className={"pullmid"} href="/brandengine/home">Home</a>
+                    <a className={"pullmid"} href="/brandengine/brands">Brands</a>
+                    <a className={"pullmid"} href="/brandengine/about-us">About us</a>
+                    <a className={"pullmid"} href="/brandengine/contact">Contact</a>
+                    <a className={"pullbottom"}
+                                href="/brandengine/contact">Logout</a>
                 </div>
             </div>
         );

@@ -28,9 +28,92 @@ body {
   margin-left: 160px;
   font-size: 28px;
   padding: 0px 10px;
+  padding-left:20%;
 }
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+.tile-viewport{
+  height: 300px !important;
+  width: 300px !important;
+}
+
+.dataPop {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 10%;
+  bottom: 10%;
+  margin: auto;
+  background: white;
+  overflow: auto;
+}
+
+.dataPopInner {
+  position: absolute;
+  left: 24%;
+  right: 24%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background: white;
+  overflow: auto;
+}
+
+.popTable{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+#insight {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#insight td, #insight th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#insight tr:nth-child(even){background-color: #f2f2f2;}
+
+#insight tr:hover {background-color: #ddd;}
+
+#insight th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button {
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.w3-container{padding:0.01em 70px}
+.w3-panel{padding:0.01em 10px;margin-top:16px;margin-bottom:16px; display: -webkit-inline-box}
+.w3-card,.w3-card-2{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); width: 100px; }
+
+.pullbottom{
+  position: absolute; height: 10px; bottom: 30px; right: 0;  left: 0;
+}
+
+.pulltop{
+  position: absolute; height: 150px; top: 150px; right: 0;  left: 0;
+}
+
+.pullmid{
+  position: relative; height: 20px; top: 80px; right: 0;  left: 0;
+}
+
+.avatar {
+  border-radius: 100%;
+  position: relative; height: 120px; top: 20px; right: 0;  left: 40px;
 }
