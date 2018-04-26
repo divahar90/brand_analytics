@@ -117,3 +117,47 @@ body {
   border-radius: 100%;
   position: relative; height: 120px; top: 20px; right: 0;  left: 40px;
 }
+
+.link {
+  background:none!important;
+  color:inherit;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  border-bottom:1px solid #444;
+  cursor: pointer;
+}
+
+.login{
+  width: 40%;
+  margin: auto;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submit {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.notify {
+  width: 30%;
+  text-align: center;
+  padding-right: 50px;
+  float: right;
+  display: inline;
+}

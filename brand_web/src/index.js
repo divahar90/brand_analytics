@@ -14,7 +14,8 @@ import Home from './components/common/Home';
 import AboutHome from './components/about_us/AboutHome';
 import BrandHome from './components/brands/BrandHome';
 import ContactHome from './components/contact/ContactHome';
-
+import BrandDetailed from "./components/brands/BrandDetailed";
+import Login from "./components/common/Login";
 
 const Root = () => {
     return (
@@ -23,9 +24,11 @@ const Root = () => {
 
             <Switch>
                 <Route path="/brandengine/home" component={Home} />
-                <Route path="/brandengine/brands" component={BrandHome} />
+                <Route path="/brandengine/brands/home" component={BrandHome} />
+                <Route path="/brandengine/brands/brand" component={BrandDetailed} />
                 <Route path="/brandengine/about-us" component={AboutHome} />
                 <Route path="/brandengine/contact" component={ContactHome} />
+                <Route path="/brandengine/login" component={Login} />
             </Switch>
 
         </BrowserRouter>

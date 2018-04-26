@@ -20,9 +20,8 @@ class Header extends Component {
 
         return (
             <div>
-                <nav className ="navbar navbar-default navbar-static-top" style={marStyle}>
-                    <div className="navbar-header">
-                            <span className="icon-bar"></span><span className="icon-bar"></span>
+                <nav style={marStyle}>
+                    <div>
                     </div><img src={require("../../images/nusiss.png")} alt="NUS ISS" style={imgStyle}/>
                     <br/>
                     <h1 align="center"><u style={txtStyle}>NUS ISS BA BEAD 27 - Brand Analytics Engine</u></h1>
