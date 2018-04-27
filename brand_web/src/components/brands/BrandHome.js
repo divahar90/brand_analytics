@@ -36,7 +36,7 @@ class BrandHome extends Component {
                     thumbnail: "https://www.coca-cola.co.uk/content/dam/journey/gb/en/hidden/History/Heritage/596x334/the_logo_story_01122014_596x334.jpg",
                     thumbnailWidth: 850,
                     thumbnailHeight: 800,
-                    tags: [{value: "Coca Cola", title: "Coca Cola"}],
+                    tags: [{value: "Coca-Cola", title: "Coca-Cola"}],
                 },
              ]
 
@@ -60,7 +60,7 @@ class BrandHome extends Component {
 
             return (<Redirect to={{
                 pathname: '/brandengine/brands/brand',
-                state: {brand: "coke"}
+                state: {brand: "Coca-Cola"}
             }} />)
         }
 

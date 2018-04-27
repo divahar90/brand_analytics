@@ -15,7 +15,7 @@ class Datapopup extends React.Component {
     render() {
 
         const data = {
-            labels: ['Comments', 'Likes'],
+            labels: ['Comments', 'Likes', 'Shares'],
             datasets: [
                 {
                     label:'Count',
@@ -24,7 +24,7 @@ class Datapopup extends React.Component {
                     borderWidth: 1,
                     hoverBackgroundColor: 'rgba(255,99,132,0.4)',
                     hoverBorderColor: 'rgba(255,99,132,1)',
-                    data: [this.state.insights.comments, this.state.insights.likes]
+                    data: [this.state.insights.comments, this.state.insights.likes, this.state.insights.shares]
                 }
             ]
         };
@@ -43,6 +43,10 @@ class Datapopup extends React.Component {
                             <tr>
                                 <th>Likes</th>
                                 <th>{this.state.insights.likes}</th>
+                            </tr>
+                            <tr>
+                                <th>Shares</th>
+                                <th>{this.state.insights.shares}</th>
                             </tr>
                             </thead>
                         </table>

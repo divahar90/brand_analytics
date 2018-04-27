@@ -49,18 +49,16 @@ body {
   bottom: 10%;
   margin: auto;
   background: white;
-  overflow: auto;
 }
 
 .dataPopInner {
-  position: absolute;
   left: 24%;
   right: 24%;
   top: 25%;
   bottom: 25%;
   margin: auto;
   background: white;
-  overflow: auto;
+  overflow-y:scroll;
 }
 
 .popTable{

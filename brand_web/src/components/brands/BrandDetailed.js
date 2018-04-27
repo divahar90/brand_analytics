@@ -4,6 +4,7 @@ import Header from '../common/Header';
 import Gallery from 'react-grid-gallery';
 import Datapopup from "./sub_components/DataPopup";
 import PropTypes from 'prop-types'
+import * as brandService from '../../service/BrandAnalyticsAPI';
 
 class BrandDetailed extends Component {
 
@@ -19,32 +20,36 @@ class BrandDetailed extends Component {
     }
 
     componentWillMount() {
-        console.log(this.props.location.state);
-        this.loadBrands();
+        this.loadBrands(this.props.location.state.brand);
     }
 
-    loadBrands() {
-        const brands =
-            [{
-                src: "https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/k0quzlckcyjriw2fubj7/lunarepic-low-flyknit-2-mens                     -running-shoe-jnTpBD72.jpg",
-                thumbnail: "https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/k0quzlckcyjriw2fubj7/lunarepic-low-flyknit-2                    -mens-running-shoe-jnTpBD72.jpg",
-                thumbnailWidth: 850,
-                thumbnailHeight: 800,
-                tags: [{value: "Nike", title: "Nike"}, {value: "Shoes", title: "Shoes"}],
-                comments: 32,
-                likes: 11,
-            },
-                {
-                    src: "https://assets.academy.com/mgen/94/10589194.jpg",
-                    thumbnail: "https://assets.academy.com/mgen/94/10589194.jpg",
-                    thumbnailWidth: 850,
-                    thumbnailHeight: 800,
-                    tags: [{value: "Nike", title: "Nike"}, {value: "Bags", title: "Bags"}],
-                    comments: 8,
-                    likes: 65
-                }]
+    loadBrands(brand) {
 
-        this.setState({brands: brands});
+        const brands = [];
+        brandService.getBrand(brand).then((response) => {
+            if (response) {
+                console.log(response.data.data[0]);
+                for (let index = 0; index < response.data.data.length;
+                                index++) {
+                    console.log(response);
+                    let resp = response.data.data[index];
+                    brands.push({
+                        src: resp.photo,
+                        thumbnail: resp.photo,
+                        thumbnailWidth: 850,
+                        thumbnailHeight: 800,
+                        comments: resp.comments,
+                        likes: resp.likes,
+                        shares: resp.shares
+                    })
+                }
+
+                console.log(brands);
+                this.setState({brands: brands});
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
     }
 
     handleClick(event) {
