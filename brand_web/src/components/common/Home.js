@@ -24,7 +24,6 @@ class Home extends Component {
         brandService.getAllBrands().then((response) => {
             if (response) {
                 console.log(response.data);
-                let totShares = 0, totLikes = 0, totComments = 0;
                 for (let index = 0; index < response.data.length;
                      index++) {
                     let total = 0;
