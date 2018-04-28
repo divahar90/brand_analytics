@@ -16,12 +16,13 @@ class Login extends Component {
     }
 
     handleSubmit(event) {
-
+        localStorage.setItem("userId", this.state.userId);
+        this.setState({redirect: true});
+        event.preventDefault();
     }
 
     render() {
-        const { redirect } = this.state.redirect;
-        if (redirect) {
+        if (this.state.redirect) {
             return (<Redirect to='/brandengine/home' />);
         }
 

@@ -11,7 +11,6 @@ import ReactDOM from 'react-dom';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import './styles/index.css';
 import Home from './components/common/Home';
-import AboutHome from './components/about_us/AboutHome';
 import BrandHome from './components/brands/BrandHome';
 import ContactHome from './components/contact/ContactHome';
 import BrandDetailed from "./components/brands/BrandDetailed";
@@ -26,7 +25,6 @@ const Root = () => {
                 <Route path="/brandengine/home" component={Home} />
                 <Route path="/brandengine/brands/home" component={BrandHome} />
                 <Route path="/brandengine/brands/brand" component={BrandDetailed} />
-                <Route path="/brandengine/about-us" component={AboutHome} />
                 <Route path="/brandengine/contact" component={ContactHome} />
                 <Route path="/brandengine/login" component={Login} />
             </Switch>

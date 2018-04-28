@@ -6,7 +6,6 @@ export const getAllBrands = function (){
     //this returns a promise object and the inner function returns
     //the actual values once promise is fullfilled
     return axios.get(BrandURL).then((response) => {
-        console.log(response);
         if (response.status === 200 &&
             response.data.status === "success") {
             return response.data;

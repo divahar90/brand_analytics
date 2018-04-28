@@ -29,10 +29,16 @@ class BrandDetailed extends Component {
         brandService.getBrand(brand).then((response) => {
             if (response) {
                 console.log(response.data.data[0]);
+                let totShares = 0, totLikes = 0, totComments = 0;
                 for (let index = 0; index < response.data.data.length;
                                 index++) {
                     console.log(response);
                     let resp = response.data.data[index];
+
+                    totShares += resp.shares;
+                    totLikes += resp.likes;
+                    totComments += resp.comments;
+
                     brands.push({
                         src: resp.photo,
                         thumbnail: resp.photo,
@@ -44,8 +50,8 @@ class BrandDetailed extends Component {
                     })
                 }
 
-                console.log(brands);
-                this.setState({brands: brands});
+                this.setState({brands: brands, totShares: totShares,
+                                                totLikes: totLikes, totComments: totComments});
             }
         }).catch((err) => {
             console.log(err);
@@ -84,17 +90,14 @@ class BrandDetailed extends Component {
                                onClick={this.context.router.history.goBack}/>
                         <br/>
                         <br/>
-                        Users: &nbsp;&nbsp;
-                        <div class="w3-panel w3-card"><p>1</p></div>
-                        &nbsp;&nbsp;&nbsp;
-                        Posts: &nbsp;&nbsp;
-                        <div class="w3-panel w3-card"><p>3</p></div>
+                        Shares: &nbsp;&nbsp;
+                        <div class="w3-panel w3-card"><p>{this.state.totShares}</p></div>
                         &nbsp;&nbsp;&nbsp;
                         Likes: &nbsp;&nbsp;
-                        <div class="w3-panel w3-card"><p>1</p></div>
+                        <div class="w3-panel w3-card"><p>{this.state.totLikes}</p></div>
                         &nbsp;&nbsp;&nbsp;
                         Comments: &nbsp;&nbsp;
-                        <div class="w3-panel w3-card"><p>2</p></div>
+                        <div class="w3-panel w3-card"><p>{this.state.totComments}</p></div>
                     </div>
 
                     <Gallery images={this.state.brands} onClickThumbnail={(e) => this.handleClick(e)} margin={75}

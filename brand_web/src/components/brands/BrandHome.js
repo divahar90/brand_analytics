@@ -4,6 +4,8 @@ import Header from '../common/Header';
 import Gallery from 'react-grid-gallery';
 import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
+import * as brandService from '../../service/BrandAnalyticsAPI';
+import {urlMap} from '../../utils/BrandConstants'
 
 class BrandHome extends Component {
 
@@ -23,28 +25,35 @@ class BrandHome extends Component {
     }
 
     loadBrands(){
-        const brands =
-            [{
-                src: "https://i2.wp.com/www.frugalfeeds.com.au/wp-content/uploads/2015/08/McDonalds.png?ssl=1",
-                thumbnail: "https://i2.wp.com/www.frugalfeeds.com.au/wp-content/uploads/2015/08/McDonalds.png?ssl=1",
-                thumbnailWidth: 850,
-                thumbnailHeight: 800,
-                tags: [{value: "McDonalds", title: "McDonalds"}],
-            },
-                {
-                    src: "https://www.coca-cola.co.uk/content/dam/journey/gb/en/hidden/History/Heritage/596x334/the_logo_story_01122014_596x334.jpg",
-                    thumbnail: "https://www.coca-cola.co.uk/content/dam/journey/gb/en/hidden/History/Heritage/596x334/the_logo_story_01122014_596x334.jpg",
-                    thumbnailWidth: 850,
-                    thumbnailHeight: 800,
-                    tags: [{value: "Coca-Cola", title: "Coca-Cola"}],
-                },
-             ]
+        let brands = [];
+        brandService.getAllBrands().then((response) => {
+            if (response) {
+                console.log(response.data);
+                for (let index = 0; index < response.data.length;
+                                        index++) {
+                    console.log(urlMap[response.data[index].brand]);
+                    brands.push(
+                        {src: urlMap[response.data[index].brand],
+                        thumbnail: urlMap[response.data[index].brand],
+                        thumbnailWidth: 850,
+                        thumbnailHeight: 800,
+                        brand: response.data[index].brand,
+                        tags: [{value: "Likes: "+response.data[index].likes, title:
+                                            "Likes: "+response.data[index].likes},
+                            {value: "Comments: "+response.data[index].comments, title: "Comments: "+response.data[index].comments}
+                            ,{value: "Shares: "+response.data[index].shares, title: "Shares: "+response.data[index].shares}]})
+                }
 
-        this.setState({brands: brands});
+                this.setState({brands: brands});
+            }
+        }).catch((err) => {
+            console.log(err);
+        });
     }
 
     handleClick(event) {
-        this.setState({redirect: true});
+        let selectedBrand = this.state.brands[event].brand;
+        this.setState({redirect: true, selectedBrand: selectedBrand});
     }
 
     thumbStyle(){
@@ -60,7 +69,7 @@ class BrandHome extends Component {
 
             return (<Redirect to={{
                 pathname: '/brandengine/brands/brand',
-                state: {brand: "Coca-Cola"}
+                state: {brand: this.state.selectedBrand}
             }} />)
         }
 
